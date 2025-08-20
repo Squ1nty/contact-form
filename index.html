@@ -26,26 +26,53 @@
     </header>
     <main>
       <section class="textInputContainer" id="firstNameInputContainer" aria-labelledby="firstNameInputLabel">
-        <label class="textInputLabel" id="firstNameInputLabel" for="firstNameInput">First Name *</label>
-        <input class="textInput" id="firstNameInput" type="text" name="firstName" autocomplete="given-name" required>
+        <label class="inputLabel" id="firstNameInputLabel" for="firstNameInput">First Name *</label>
+        <input class="textInput" id="firstNameInput" type="text" name="firstName" autocomplete="given-name" tabindex="" required>
         <span class="error-state" id="firstNameInputErrorMsg" inert=""></span>
       </section>
       <section class="textInputContainer" id="lastNameInputContainer" aria-labelledby="lastNameInputLabel">
-        <label class="textInputLabel" id="lastNameInputLabel" for="lastNameInput">Last Name *</label>
+        <label class="inputLabel" id="lastNameInputLabel" for="lastNameInput">Last Name *</label>
         <input class="textInput" id="lastNameInput" type="text" name="lastName" autocomplete="family-name" required>
         <span class="error-state" id="lastNameInputErrorMsg" inert=""></span>
       </section>
       <section class="textInputContainer" id="emailAddressInputContainer" aria-labelledby="emailAddressInputLabel">
-        <label class="textInputLabel" id="emailAddressInputLabel" for="emailAddressInput">Email Address *</label>
+        <label class="inputLabel" id="emailAddressInputLabel" for="emailAddressInput">Email Address *</label>
         <input class="textInput" id="emailAddressInput" type="email" name="emailAddress" autocomplete="email" required>
         <span class="error-state" id="emailAddressInputErrorMsg" inert=""></span>
       </section>
+      <fieldset required>
+        <legend class="inputLabel">Query Type *</legend>
+        <div class="radioBtnContainerWrapper">
+          <div class="radioBtnContainer" id="generalQueryContainer" tabindex="0">
+            <input class="queryRadioBtn" id="generalQueryBtn" type="radio" name="queryType" value="general">
+            <label class="radioBtnSelected" for="generalQueryBtn" aria-label="Custom Radio-Button Selected Icon"></label>
+            <label id="generalQueryLabel" for="generalQueryBtn">General Query</label>
+          </div>
+          <div class="radioBtnContainer" id="supportRequestQueryContainer" tabindex="0">
+            <input class="queryRadioBtn" id="supportRequestQueryBtn" type="radio" name="queryType" value="suppRequest">
+            <label class="radioBtnSelected" id="supportRequestQuerySelected" for="supportRequestQueryBtn" aria-label="Custom Radio-Button Selected Icon"></label>
+            <label id="supportRequestLabel" for="supportRequestQueryBtn">Support Request</label>
+          </div>
+        </div>
+        <span class="error-state" id="queryRadioBtnErrorMsg" inert=""></span>
+      </fieldset>
+      <section class="textInputContainer" id="messageInputContainer" aria-labelledby="messageInputLabel">
+        <label class="inputLabel" id="messageInputLabel" for="messageInput">Message *</label>
+        <textarea class="textInput" id="messageInput" name="message" tabindex="0" rows="3" required></textarea>
+        <span class="error-state" id="messageInputErrorMsg" inert=""></span>
+      </section>
+      <div id="consentCheckboxContainer" aria-labelledby="consentCheckboxLabel" tabindex="0">
+        <input id="consentCheckbox" type="checkbox" name="isConsentGiven" value="true">
+        <label class="checkmark" for="consentCheckbox" aria-label="Custom Checkmark for Consent Checkbox"></label>
+        <label class="inputLabel" id="consentCheckboxLabel" for="consentCheckbox" aria-label="Checkbox to allow consent to be contacted by the team">I consent to being contacted by the team *</label>
+      </div>
+      <button type="submit" class="submitBtn" aria-label="Contact Form Submit Button" tabindex="0">Submit</button>
     </main>
   </form>
   <footer>
     <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
+      Coded by <a href="https://www.frontendmentor.io/profile/Squ1nty">Vincent Dao</a>.
     </div>
   </footer>
   <script src="./main.js"></script>

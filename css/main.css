@@ -1,0 +1,41 @@
+#consentCheckboxContainer, .radioBtnContainer{
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+}
+
+#consentCheckboxLabel, #generalQueryLabel, #supportRequestLabel{
+  cursor: pointer;
+  margin-left: 1rem;
+}
+#consentCheckbox, .queryRadioBtn{
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark, .radioBtnSelected{
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid var(--grey-500);
+}
+.checkmark{
+  border-radius: 3px;
+  width: 18px;
+  height: 18px;
+}
+.radioBtnSelected{
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+#consentCheckbox:checked ~.checkmark{
+  background-image: url(../assets/images/icon-checkbox-check.svg);
+  background-repeat: no-repeat;
+  border: none;
+}
+.queryRadioBtn:checked ~.radioBtnSelected{
+  background-image: url(../assets/images/icon-radio-selected.svg);
+  background-repeat: no-repeat;
+  border:none;
+}
