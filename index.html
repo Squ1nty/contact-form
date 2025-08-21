@@ -61,11 +61,14 @@
         <textarea class="textInput" id="messageInput" name="message" tabindex="0" rows="3" required></textarea>
         <span class="error-state" id="messageInputErrorMsg" inert=""></span>
       </section>
-      <div id="consentCheckboxContainer" aria-labelledby="consentCheckboxLabel" tabindex="0">
-        <input id="consentCheckbox" type="checkbox" name="isConsentGiven" value="true">
-        <label class="checkmark" for="consentCheckbox" aria-label="Custom Checkmark for Consent Checkbox"></label>
-        <label class="inputLabel" id="consentCheckboxLabel" for="consentCheckbox" aria-label="Checkbox to allow consent to be contacted by the team">I consent to being contacted by the team *</label>
-      </div>
+      <section id="consentCheckboxWrapper" aria-labelledby="consentCheckboxLabel">
+        <div id="consentCheckboxContainer" aria-labelledby="consentCheckboxLabel" tabindex="0">
+          <input id="consentCheckbox" type="checkbox" name="isConsentGiven" value="yes">
+          <label class="checkmark" for="consentCheckbox" aria-label="Custom Checkmark for Consent Checkbox"></label>
+          <label class="inputLabel" id="consentCheckboxLabel" for="consentCheckbox" aria-label="Checkbox to allow consent to be contacted by the team">I consent to being contacted by the team *</label>
+        </div>
+        <span class="error-state" id="consentCheckboxErrorMsg" inert=""></span>
+      </section>
       <button type="submit" class="submitBtn" aria-label="Contact Form Submit Button" tabindex="0">Submit</button>
     </main>
   </form>

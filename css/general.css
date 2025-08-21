@@ -15,10 +15,12 @@
   --white: hsl(0, 0%, 100%);
   --grey-500: hsl(186, 15%, 59%);
   --grey-900: hsl(187, 24%, 22%);
+
+  --default-input-gray: rgb(118, 118, 118);
+}
+input[type="text"], input[type="email"], textarea{
+  border: 1px solid rgb(118, 118, 118);
 }
 .error-state{
   color: var(--red);
-}
-.error-border{
-  border-color: var(--red);
 }
