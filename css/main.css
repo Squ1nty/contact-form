@@ -1,3 +1,16 @@
+@media(max-width: 425px){
+  body{
+    max-width: 425px;
+    padding: 1rem 0.75rem;
+  }
+}
+
+body{
+  position: relative;
+
+  height: 100dvh;
+}
+
 #consentCheckboxContainer, .radioBtnContainer{
   display: flex;
   cursor: pointer;

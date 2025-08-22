@@ -1,0 +1,33 @@
+.successPrompt{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  position: absolute;
+  top: 5%;
+  left: 6%;
+
+  background-color: var(--grey-900);
+  color: var(--white);
+
+  padding: 1.15rem;
+  border-radius: 0.75rem;
+
+  opacity: 0;
+  transition: 0.35s ease opacity;
+}
+.successPromptHeader{
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+.successTickContainer{
+  display: flex;
+  align-items: center;
+}
+.successPromptText{
+  font-size: 0.6rem;
+}

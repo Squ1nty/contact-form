@@ -18,7 +18,14 @@ let messageErrorLabel = document.getElementById("messageInputErrorMsg");
 let consentCheckbox = document.getElementById("consentCheckbox");
 let consentCheckboxErrorMsg = document.getElementById("consentCheckboxErrorMsg");
 
-let errorLabels = document.getElementsByClassName("error-state");
+let isFirstNameValid = false;
+let isLastNameValid = false;
+let isEmailGiven = false;
+let isEmailValid = false;
+let isQueryTypeValid = false;
+let isMsgValid = false;
+
+let successPrompt = document.getElementById("successPrompt");
 
 function handleRequired(){
   // Check if firstName is empty
@@ -31,6 +38,7 @@ function handleRequired(){
     firstNameInputErrorMsg.setAttribute("inert", true);
     firstNameInputErrorMsg.textContent = "";
     firstName.style.borderColor = "var(--default-input-gray)";
+    isFirstNameValid = true;
   }
 
   // Check if lastName is empty
@@ -43,6 +51,7 @@ function handleRequired(){
     lastNameInputErrorMsg.setAttribute("inert", true);
     lastNameInputErrorMsg.textContent = "";
     lastName.style.borderColor = "var(--default-input-gray)";
+    isLastNameValid = true;
   }
 
   // Check if email is empty
@@ -56,7 +65,11 @@ function handleRequired(){
       emailInputErrorLabel.setAttribute("inert", true);
       emailInputErrorLabel.textContent = "";
       email.style.borderColor = "var(--default-input-gray)";
+      isEmailGiven = true;
     }
+  }
+  else{
+    isEmailGiven = true;
   }
 
   // Check if a queryType was selected or not
@@ -67,6 +80,7 @@ function handleRequired(){
   else{
     queryRadioBtnErrorMsg.setAttribute("inert", true);
     queryRadioBtnErrorMsg.textContent = "";
+    isQueryTypeValid = true;
   }
 
   // Check if messageInput is empty
@@ -79,6 +93,7 @@ function handleRequired(){
       messageErrorLabel.setAttribute("inert", true);
       messageErrorLabel.textContent = "";
       message.style.borderColor = "var(--default-input-gray)";
+      isMsgValid = true;
   }
 
   // Check if consent is given or not
@@ -90,7 +105,6 @@ function handleRequired(){
     consentCheckboxErrorMsg.setAttribute("inert", true);
     consentCheckboxErrorMsg.textContent = "";
   }
-
 }
 function checkEmailValidity(){
   if(!email.checkValidity()){
@@ -102,6 +116,7 @@ function checkEmailValidity(){
   else{
     emailInputErrorLabel.textContent = "";
     email.style.borderColor = "var(--default-input-gray)";
+    isEmailValid = true;
   }
 }
 
@@ -114,8 +129,31 @@ queryBtns.forEach(queryType => {
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  handleRequired();
-  checkEmailValidity();
+  isFirstNameValid = false;
+  isLastNameValid = false;
+  isEmailGiven = false;
+  isEmailValid = false;
+  isQueryTypeValid = false;
+  isMsgValid = false;
 
-  // Create an if-statement that calls a method that checks whether or not any of the error-states contain text in them or not. If not, success, if so, boo hoo
+  handleRequired();
+
+  if(!isFirstNameValid || !isLastNameValid || !isEmailGiven || !isQueryTypeValid || !isMsgValid || !consentCheckbox.checked){
+    console.log(isFirstNameValid + " " + isLastNameValid + " " + isEmailGiven + " " + isQueryTypeValid + " " + isMsgValid)
+    return;
+  }
+
+  checkEmailValidity();
+  if(!isEmailValid){
+    return;
+  }
+
+  // At this point, everything checks out so print Success prompt
+  successPrompt.style.opacity = "100%";
+  setTimeout(function(){
+    successPrompt.style.opacity = "0";
+  }, 3000);
+  setTimeout(() =>{
+    window.location.reload();
+  }, 4500);
 });
