@@ -8,8 +8,10 @@ let lastNameInputErrorMsg = document.getElementById("lastNameInputErrorMsg");
 let email = document.getElementById("emailAddressInput");
 let emailInputErrorLabel = document.getElementById("emailAddressInputErrorMsg");
 
-let queryBtns = document.querySelectorAll(".queryRadioBtn");
+let radioBtnContainerWrapper = document.querySelector(".radioBtnContainerWrapper");
+let selectedQueryID = "";
 let queryBtnSelected = "";
+let otherBtn = "";
 let queryRadioBtnErrorMsg = document.getElementById("queryRadioBtnErrorMsg");
 
 let message = document.getElementById("messageInput");
@@ -17,6 +19,7 @@ let messageErrorLabel = document.getElementById("messageInputErrorMsg");
 
 let consentCheckbox = document.getElementById("consentCheckbox");
 let consentCheckboxErrorMsg = document.getElementById("consentCheckboxErrorMsg");
+let checkmark = document.querySelector(".checkmark");
 
 let isFirstNameValid = false;
 let isLastNameValid = false;
@@ -120,10 +123,44 @@ function checkEmailValidity(){
   }
 }
 
-queryBtns.forEach(queryType => {
-  queryType.addEventListener("click", (e) => {
-    queryBtnSelected = e.currentTarget.value;
-  })
+function handleRadioBtn(e){
+  queryBtnSelected = "";
+  selectedQueryID = "";
+  otherBtn = "";
+
+  if(e.target.getAttribute("id") === "generalQueryContainer"){
+    queryBtnSelected = document.getElementById("generalQueryBtn");
+    otherBtn = document.getElementById("supportRequestQueryBtn");
+    otherBtn.removeAttribute("checked");
+    queryBtnSelected.setAttribute("checked", true);
+  }
+  else{
+    queryBtnSelected = document.getElementById("supportRequestQueryBtn");
+    otherBtn = document.getElementById("generalQueryBtn");
+    otherBtn.removeAttribute("checked");
+    queryBtnSelected.setAttribute("checked", true);
+  }
+}
+
+radioBtnContainerWrapper.addEventListener("click", (e) => {
+  e.preventDefault();
+  handleRadioBtn(e);
+});
+radioBtnContainerWrapper.addEventListener("keydown", (e) => {
+  if(e.key === "Enter" || e.key === " "){
+    handleRadioBtn(e);
+  }
+});
+
+checkmark.addEventListener("keydown", (e) => {
+  if(e.key === "Enter" || e.key === " "){
+    if(consentCheckbox.checked){
+      consentCheckbox.removeAttribute("checked");
+    }
+    else{
+      consentCheckbox.setAttribute("checked", true);
+    }
+  }
 });
 
 contactForm.addEventListener("submit", (e) => {
@@ -139,7 +176,6 @@ contactForm.addEventListener("submit", (e) => {
   handleRequired();
 
   if(!isFirstNameValid || !isLastNameValid || !isEmailGiven || !isQueryTypeValid || !isMsgValid || !consentCheckbox.checked){
-    console.log(isFirstNameValid + " " + isLastNameValid + " " + isEmailGiven + " " + isQueryTypeValid + " " + isMsgValid)
     return;
   }
 
@@ -157,3 +193,13 @@ contactForm.addEventListener("submit", (e) => {
     window.location.reload();
   }, 4500);
 });
+
+// Changes the message box so that the "rows" attribute adjusts according to viewport
+window.addEventListener("resize", (e) => {
+  if(window.innerWidth <= 425){
+    message.setAttribute("rows", 15);
+  }
+  else{
+    message.setAttribute("rows", 3);
+  }
+})

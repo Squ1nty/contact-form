@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./css/general.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/successState.css">
+  <link rel="stylesheet" href="./css/customBtnSelector.css">
 
   <!-- Linking "Karla" font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,12 +61,12 @@
         <legend class="inputLabel">Query Type *</legend>
         <div class="radioBtnContainerWrapper">
           <div class="radioBtnContainer" id="generalQueryContainer" tabindex="0">
-            <input class="queryRadioBtn" id="generalQueryBtn" type="radio" name="queryType" value="general">
+            <input class="queryRadioBtn" id="generalQueryBtn" type="radio" name="queryType" value="general" inert="">
             <label class="radioBtnSelected" for="generalQueryBtn" aria-label="Custom Radio-Button Selected Icon"></label>
             <label id="generalQueryLabel" for="generalQueryBtn">General Query</label>
           </div>
           <div class="radioBtnContainer" id="supportRequestQueryContainer" tabindex="0">
-            <input class="queryRadioBtn" id="supportRequestQueryBtn" type="radio" name="queryType" value="suppRequest">
+            <input class="queryRadioBtn" id="supportRequestQueryBtn" type="radio" name="queryType" value="supportRequest" inert="">
             <label class="radioBtnSelected" id="supportRequestQuerySelected" for="supportRequestQueryBtn" aria-label="Custom Radio-Button Selected Icon"></label>
             <label id="supportRequestLabel" for="supportRequestQueryBtn">Support Request</label>
           </div>
@@ -74,14 +75,14 @@
       </fieldset>
       <section class="textInputContainer" id="messageInputContainer" aria-labelledby="messageInputLabel">
         <label class="inputLabel" id="messageInputLabel" for="messageInput">Message *</label>
-        <textarea class="textInput" id="messageInput" name="message" tabindex="0" rows="3" required></textarea>
+        <textarea class="textInput" id="messageInput" name="message" tabindex="0" required></textarea>
         <span class="error-state" id="messageInputErrorMsg" inert=""></span>
       </section>
       <section id="consentCheckboxWrapper" aria-labelledby="consentCheckboxLabel">
-        <div id="consentCheckboxContainer" aria-labelledby="consentCheckboxLabel" tabindex="0">
-          <input id="consentCheckbox" type="checkbox" name="isConsentGiven" value="yes">
-          <label class="checkmark" for="consentCheckbox" aria-label="Custom Checkmark for Consent Checkbox"></label>
-          <label class="inputLabel" id="consentCheckboxLabel" for="consentCheckbox" aria-label="Checkbox to allow consent to be contacted by the team">I consent to being contacted by the team *</label>
+        <div id="consentCheckboxContainer" aria-labelledby="consentCheckboxLabel">
+          <input id="consentCheckbox" type="checkbox" name="isConsentGiven" value="yes" inert="">
+          <label class="checkmark" for="consentCheckbox" aria-label="Custom Checkmark for Consent Checkbox" tabindex="0"></label>
+          <label class="inputLabel" id="consentCheckboxLabel" for="consentCheckbox" aria-label="Checkbox to allow consent to be contacted by the team">I consent to being contacted by the <span class="noLineBreak">team *</span></label>
         </div>
         <span class="error-state" id="consentCheckboxErrorMsg" inert=""></span>
       </section>

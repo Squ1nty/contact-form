@@ -1,0 +1,17 @@
+.textInput:hover, .textarea:hover, .radioBtnContainer:hover, .submitBtn:hover, .checkmark{
+  cursor: pointer;
+}
+.textInput:hover, .textarea:hover{
+  border-color: var(--green-600);
+}
+.submitBtn:hover{
+  background-color: hsl(169, 84%, 15%); /* Couldn't get intended effect so hard coded the color */
+}
+
+.radioBtnContainer:has(.queryRadioBtn:checked){
+  background-color: var(--green-200);
+  border-color: var(--green-600);
+}
+.textInput:focus, .textarea:focus, .radioBtnContainer:focus, .checkmark:focus{
+  outline-color: var(--green-600);
+}

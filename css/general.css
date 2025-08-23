@@ -23,4 +23,9 @@ input[type="text"], input[type="email"], textarea{
 }
 .error-state{
   color: var(--red);
+
+  font-size: 0.75rem;
+}
+.noLineBreak{
+  white-space: nowrap;
 }

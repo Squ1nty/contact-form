@@ -1,7 +1,7 @@
 @media(max-width: 425px){
   body{
     max-width: 425px;
-    padding: 1rem 0.75rem;
+    padding: 2rem 0.75rem;
   }
 }
 
@@ -9,46 +9,65 @@ body{
   position: relative;
 
   height: 100dvh;
-}
+  background-color: var(--green-200);
 
-#consentCheckboxContainer, .radioBtnContainer{
   display: flex;
-  cursor: pointer;
-  width: 100%;
+  flex-direction: column;
+  gap: 1rem;
 }
+form{
+  background-color: var(--white);
+  padding: 1.5rem;
 
-#consentCheckboxLabel, #generalQueryLabel, #supportRequestLabel{
-  cursor: pointer;
-  margin-left: 1rem;
+  border-radius: 1rem;
 }
-#consentCheckbox, .queryRadioBtn{
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+header{
+  padding-bottom: 1.5rem;
 }
-.checkmark, .radioBtnSelected{
-  background-image: none;
-  background-color: transparent;
-  border: 1px solid var(--grey-500);
+main{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.checkmark{
-  border-radius: 3px;
-  width: 18px;
-  height: 18px;
+.textInputContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.radioBtnSelected{
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
+.textInput{
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
-#consentCheckbox:checked ~.checkmark{
-  background-image: url(../assets/images/icon-checkbox-check.svg);
-  background-repeat: no-repeat;
+fieldset{
   border: none;
 }
-.queryRadioBtn:checked ~.radioBtnSelected{
-  background-image: url(../assets/images/icon-radio-selected.svg);
-  background-repeat: no-repeat;
-  border:none;
+legend{
+  padding-bottom: 1.15rem;
+}
+.radioBtnContainerWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.radioBtnContainer{
+  border: 1px solid var(--default-input-gray);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+}
+#consentCheckboxWrapper{
+  padding: 1rem 0;
+}
+#consentCheckboxContainer{
+  display: flex;
+  align-items: center;
+
+  font-size: min(3.75vw, 1.05rem);
+}
+.submitBtn{
+  border: none;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+
+  background-color: var(--green-600);
+  color: var(--white);
 }
