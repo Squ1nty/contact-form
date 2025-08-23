@@ -194,12 +194,22 @@ contactForm.addEventListener("submit", (e) => {
   }, 4500);
 });
 
-// Changes the message box so that the "rows" attribute adjusts according to viewport
-window.addEventListener("resize", (e) => {
+function adjustTextArea(){
   if(window.innerWidth <= 425){
     message.setAttribute("rows", 15);
   }
-  else{
-    message.setAttribute("rows", 3);
+  else if(window.innerWidth > 425 && window.innerWidth <= 768){
+    message.setAttribute("rows", 10);
   }
-})
+  else{
+    message.setAttribute("rows", 5);
+  }
+}
+
+// Changes the message box so that the "rows" attribute adjusts according to viewport
+window.addEventListener("resize", (e) => {
+  adjustTextArea();
+});
+window.onload = () => {
+  adjustTextArea();
+}

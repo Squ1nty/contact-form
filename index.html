@@ -42,16 +42,18 @@
       <h1>Contact Us</h1>
     </header>
     <main>
-      <section class="textInputContainer" id="firstNameInputContainer" aria-labelledby="firstNameInputLabel">
-        <label class="inputLabel" id="firstNameInputLabel" for="firstNameInput">First Name *</label>
-        <input class="textInput" id="firstNameInput" type="text" name="firstName" autocomplete="given-name" tabindex="" required>
-        <span class="error-state" id="firstNameInputErrorMsg" inert=""></span>
-      </section>
-      <section class="textInputContainer" id="lastNameInputContainer" aria-labelledby="lastNameInputLabel">
-        <label class="inputLabel" id="lastNameInputLabel" for="lastNameInput">Last Name *</label>
-        <input class="textInput" id="lastNameInput" type="text" name="lastName" autocomplete="family-name" required>
-        <span class="error-state" id="lastNameInputErrorMsg" inert=""></span>
-      </section>
+      <div class="firstLastWrapper">
+        <section class="textInputContainer" id="firstNameInputContainer" aria-labelledby="firstNameInputLabel">
+          <label class="inputLabel" id="firstNameInputLabel" for="firstNameInput">First Name *</label>
+          <input class="textInput" id="firstNameInput" type="text" name="firstName" autocomplete="given-name" tabindex="" required>
+          <span class="error-state" id="firstNameInputErrorMsg" inert=""></span>
+        </section>
+        <section class="textInputContainer" id="lastNameInputContainer" aria-labelledby="lastNameInputLabel">
+          <label class="inputLabel" id="lastNameInputLabel" for="lastNameInput">Last Name *</label>
+          <input class="textInput" id="lastNameInput" type="text" name="lastName" autocomplete="family-name" required>
+          <span class="error-state" id="lastNameInputErrorMsg" inert=""></span>
+        </section>
+      </div>
       <section class="textInputContainer" id="emailAddressInputContainer" aria-labelledby="emailAddressInputLabel">
         <label class="inputLabel" id="emailAddressInputLabel" for="emailAddressInput">Email Address *</label>
         <input class="textInput" id="emailAddressInput" type="email" name="emailAddress" autocomplete="email" required>

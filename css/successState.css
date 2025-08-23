@@ -3,9 +3,13 @@
   flex-direction: column;
   gap: 0.5rem;
 
+  width: max(300px, 30vw);
+
   position: absolute;
-  top: 5%;
-  left: 6%;
+  top: 3%;
+  left: 50%;
+
+  transform: translate(-50%, 0);
 
   background-color: var(--grey-900);
   color: var(--white);
@@ -22,12 +26,12 @@
   align-items: center;
 
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: minmax(0.75rem, 1.25rem);
 }
 .successTickContainer{
   display: flex;
   align-items: center;
 }
 .successPromptText{
-  font-size: 0.6rem;
+  font-size: max(0.6rem, 1vw);
 }
